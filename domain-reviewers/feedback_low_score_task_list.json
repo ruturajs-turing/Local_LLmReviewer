@@ -1,0 +1,940 @@
+{
+  "description": "Low-score / problematic task list, consolidated from all_scores.json, _summary.json, and three-week analysis reports",
+  "filter_criteria": "Any dimension (question_quality / test_quality / test_cover) <= 5, or three-dimension average <= 6",
+  "total_tasks": 294,
+  "low_score_count": 50,
+  "summary": {
+    "by_severity": {
+      "critical": 13,
+      "serious": 27,
+      "moderate": 10
+    },
+    "by_category": {
+      "games-development": 11,
+      "frontend-development": 10,
+      "scientific-computing": 5,
+      "machine-learning": 3,
+      "algorithm-design": 3,
+      "mathematics": 2,
+      "model-training": 2,
+      "personal-assistant": 2,
+      "security": 2,
+      "data-science": 2,
+      "Build-and-Deployment": 1,
+      "data-analysis": 1,
+      "ui-ux-optimization": 1,
+      "software-engineering": 1,
+      "data-querying": 1,
+      "file-system": 1,
+      "system-administration": 1,
+      "data-preprocessing": 1
+    },
+    "by_parent": [
+      {
+        "parent": "Tencent_TB2_Week01_91",
+        "low_score_count": 22,
+        "total_count": 91,
+        "low_score_ratio": 0.2418
+      },
+      {
+        "parent": "Tencent_TB2_Week2_123",
+        "low_score_count": 22,
+        "total_count": 123,
+        "low_score_ratio": 0.1789
+      },
+      {
+        "parent": "Tencent_TB2_Week3_80",
+        "low_score_count": 6,
+        "total_count": 80,
+        "low_score_ratio": 0.075
+      }
+    ],
+    "top_problem_patterns": [
+      {
+        "pattern": "No rendering/browser tests",
+        "approx_count": 20,
+        "description": "Frontend/UI tasks have zero browser-based rendering tests; 70% rely on pure text matching"
+      },
+      {
+        "pattern": "Insufficient test scenarios / edge cases",
+        "approx_count": 11,
+        "description": "Most game tasks use only 1 input dataset; hardcoded values can pass all tests"
+      },
+      {
+        "pattern": "Contradictory instructions / data mismatch",
+        "approx_count": 8,
+        "description": "Instruction.md contradicts the actual data provided"
+      },
+      {
+        "pattern": "Format-only validation without value verification",
+        "approx_count": 7,
+        "description": "Core computational logic is not tested; correct format alone passes all tests"
+      },
+      {
+        "pattern": "Overly loose tolerances / meaningless tests",
+        "approx_count": 4,
+        "description": "Thresholds are too lenient or test logic is meaningless"
+      },
+      {
+        "pattern": "Bugs in test code itself",
+        "approx_count": 3,
+        "description": "Python operator precedence errors, dead code, empty assertions, etc."
+      }
+    ]
+  },
+  "tasks": [
+    {
+      "task_name": "97c21df4-ede3-4983-aa5b-c121cc93909f-terminal-bench-mahjong-medium",
+      "short_name": "mahjong-medium",
+      "parent": "Tencent_TB2_Week01_91",
+      "category": "games-development",
+      "difficulty": "medium",
+      "question_quality": 4,
+      "test_quality": 3,
+      "test_cover": 3,
+      "avg_score": 3.33,
+      "severity": "critical",
+      "problem_tags": [
+        "Insufficient test scenarios / edge cases",
+        "Poor question quality / contradictory description",
+        "Low test quality",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "Scenario 1 correct answer (DECLARE_MAHJONG) is completely unverified; instruction claims ALLOW_PUNG=false but actual value is true; tests contain dead code"
+    },
+    {
+      "task_name": "30eb949b-c9bc-4563-92db-08ef17c21dea-terminal-bench-model-score-instability-debug-medium",
+      "short_name": "model-score-instability-debug-medium",
+      "parent": "Tencent_TB2_Week01_91",
+      "category": "machine-learning",
+      "difficulty": "medium",
+      "question_quality": 6,
+      "test_quality": 2,
+      "test_cover": 2,
+      "avg_score": 3.33,
+      "severity": "critical",
+      "problem_tags": [
+        "Low test quality",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "Tests only check output file format; running echo '{\"score\":0.5}' > result.json passes all tests"
+    },
+    {
+      "task_name": "52b7adae-f40c-4389-9f18-36f44e98840d-terminal-bench-cicd-build-failure-diagnosis-medium",
+      "short_name": "cicd-build-failure-diagnosis-medium",
+      "parent": "Tencent_TB2_Week2_123",
+      "category": "Build-and-Deployment",
+      "difficulty": "medium",
+      "question_quality": 4,
+      "test_quality": 3,
+      "test_cover": 3,
+      "avg_score": 3.33,
+      "severity": "critical",
+      "problem_tags": [
+        "Poor question quality / contradictory description",
+        "Low test quality",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "Both the question and tests are severely inadequate"
+    },
+    {
+      "task_name": "03ca7278-90d2-4beb-8ee7-4fcd205eade1-terminal-bench-chess-best-move-medium",
+      "short_name": "chess-best-move-medium",
+      "parent": "Tencent_TB2_Week01_91",
+      "category": "games-development",
+      "difficulty": "easy",
+      "question_quality": 4,
+      "test_quality": 5,
+      "test_cover": 3,
+      "avg_score": 4.0,
+      "severity": "critical",
+      "problem_tags": [
+        "Insufficient test scenarios / edge cases",
+        "Poor question quality / contradictory description",
+        "Low test quality",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "Case 1 and Case 2 use the same FEN (Scholar's Mate); only tests one-move checkmate; no promotion, en passant, or deep search tests"
+    },
+    {
+      "task_name": "43993261-1281-4b57-a3eb-d3bf6267f2b2-terminal-bench-typescript-props-generator-medium",
+      "short_name": "typescript-props-generator-medium",
+      "parent": "Tencent_TB2_Week01_91",
+      "category": "frontend-development",
+      "difficulty": "medium",
+      "question_quality": 6,
+      "test_quality": 4,
+      "test_cover": 3,
+      "avg_score": 4.33,
+      "severity": "critical",
+      "problem_tags": [
+        "No rendering/browser tests",
+        "Low test quality",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "test_typescript_compiles is dead code (no tsc environment available); multiple tests have no assertions"
+    },
+    {
+      "task_name": "0c64091a-34ff-45b2-a117-2ff66a36b410-terminal-bench-board-siege-medium",
+      "short_name": "board-siege-medium",
+      "parent": "Tencent_TB2_Week01_91",
+      "category": "games-development",
+      "difficulty": "medium",
+      "question_quality": 4,
+      "test_quality": 6,
+      "test_cover": 3,
+      "avg_score": 4.33,
+      "severity": "critical",
+      "problem_tags": [
+        "Insufficient test scenarios / edge cases",
+        "Poor question quality / contradictory description",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "Single 12x12 board; hardcoding {\"captures\":[7]} passes all tests; rules don't clarify whether diagonal captures are included"
+    },
+    {
+      "task_name": "6f82a4b1-3c2e-4f9a-8d1b-9e4a7c5f2d8a-terminal-bench-warehouse-inventory-reconciliation-medium",
+      "short_name": "warehouse-inventory-reconciliation-medium",
+      "parent": "Tencent_TB2_Week01_91",
+      "category": "data-analysis",
+      "difficulty": "medium",
+      "question_quality": 6,
+      "test_quality": 4,
+      "test_cover": 4,
+      "avg_score": 4.67,
+      "severity": "critical",
+      "problem_tags": [
+        "Low test quality",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "~10 out of 16 tests execute the exact same logic (comparing sorted(flagged_skus))"
+    },
+    {
+      "task_name": "abe97442-b384-4c8f-9869-9583c0000446-terminal-bench-churn-model-debug-medium",
+      "short_name": "churn-model-debug-medium",
+      "parent": "Tencent_TB2_Week3_80",
+      "category": "machine-learning",
+      "difficulty": "medium",
+      "question_quality": 5,
+      "test_quality": 5,
+      "test_cover": 4,
+      "avg_score": 4.67,
+      "severity": "critical",
+      "problem_tags": [
+        "Poor question quality / contradictory description",
+        "Low test quality",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "Instruction contradicts data in multiple places: says to use features listed in experiment configuration but the config file has no feature list; says data contains train/valid/test split column but CSV has no such column"
+    },
+    {
+      "task_name": "0bcfaa5b-a94f-4c37-a682-5bbc83a324a0-terminal-bench-number-theory-explorer-medium",
+      "short_name": "number-theory-explorer-medium",
+      "parent": "Tencent_TB2_Week3_80",
+      "category": "mathematics",
+      "difficulty": "medium",
+      "question_quality": 7,
+      "test_quality": 4,
+      "test_cover": 3,
+      "avg_score": 4.67,
+      "severity": "critical",
+      "problem_tags": [
+        "Low test quality",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "All 9 output files with number theory calculations only verify format and sorting, never verify any computed values"
+    },
+    {
+      "task_name": "a7c3e1f4-8b2d-4e6a-9f0c-5d3b1a2e4c6f-terminal-bench-timeline-widget-medium",
+      "short_name": "timeline-widget-medium",
+      "parent": "Tencent_TB2_Week01_91",
+      "category": "frontend-development",
+      "difficulty": "medium",
+      "question_quality": 7,
+      "test_quality": 4,
+      "test_cover": 4,
+      "avg_score": 5.0,
+      "severity": "critical",
+      "problem_tags": [
+        "No rendering/browser tests",
+        "Low test quality",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "test_js_dark_theme only checks that 'dark' and 'class' appear somewhere in the JS code"
+    },
+    {
+      "task_name": "a0837436-239a-4efe-a93b-5a3a75c9491e-terminal-bench-dead-css-finder-medium",
+      "short_name": "dead-css-finder-medium",
+      "parent": "Tencent_TB2_Week01_91",
+      "category": "ui-ux-optimization",
+      "difficulty": "medium",
+      "question_quality": 7,
+      "test_quality": 4,
+      "test_cover": 4,
+      "avg_score": 5.0,
+      "severity": "critical",
+      "problem_tags": [
+        "No rendering/browser tests",
+        "Low test quality",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "Multiple test functions end with 'pass' and have no assertions; empty output can pass all tests"
+    },
+    {
+      "task_name": "93afb2f6-42d8-43e6-ba01-1ae32a0da2d0-terminal-bench-kanban-board-hard",
+      "short_name": "kanban-board-hard",
+      "parent": "Tencent_TB2_Week2_123",
+      "category": "frontend-development",
+      "difficulty": "hard",
+      "question_quality": 6,
+      "test_quality": 4,
+      "test_cover": 5,
+      "avg_score": 5.0,
+      "severity": "critical",
+      "problem_tags": [
+        "No rendering/browser tests",
+        "Low test quality",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "Drag-and-drop, WIP limits, and filtering are completely unverified; test_wip_handling passes as long as code contains 'wip' or 'limit'"
+    },
+    {
+      "task_name": "ff5016e5-a26d-4cb4-8d97-05acd0f66594-terminal-bench-rummikub-medium",
+      "short_name": "rummikub-medium",
+      "parent": "Tencent_TB2_Week2_123",
+      "category": "games-development",
+      "difficulty": "medium",
+      "question_quality": 5,
+      "test_quality": 6,
+      "test_cover": 4,
+      "avg_score": 5.0,
+      "severity": "critical",
+      "problem_tags": [
+        "Insufficient test scenarios / edge cases",
+        "Poor question quality / contradictory description",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "All scenarios have solutions (no DRAW); all optimal solutions are runs (no groups); empty hand and other edge cases are missing"
+    },
+    {
+      "task_name": "2a959660-4369-404f-bd24-70742b83b7b8-terminal-bench-dashboard-cards-medium",
+      "short_name": "dashboard-cards-medium",
+      "parent": "Tencent_TB2_Week01_91",
+      "category": "frontend-development",
+      "difficulty": "hard",
+      "question_quality": 6,
+      "test_quality": 4,
+      "test_cover": 6,
+      "avg_score": 5.33,
+      "severity": "serious",
+      "problem_tags": [
+        "No rendering/browser tests",
+        "Low test quality"
+      ],
+      "problem_detail": "Python operator precedence bug causes incorrect test logic"
+    },
+    {
+      "task_name": "2cfa9efc-e3c4-4003-89b8-92b727863d73-terminal-bench-responsive-nav-menu-medium",
+      "short_name": "responsive-nav-menu-medium",
+      "parent": "Tencent_TB2_Week01_91",
+      "category": "frontend-development",
+      "difficulty": "medium",
+      "question_quality": 7,
+      "test_quality": 5,
+      "test_cover": 4,
+      "avg_score": 5.33,
+      "severity": "serious",
+      "problem_tags": [
+        "No rendering/browser tests",
+        "Low test quality",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "Responsive layout only checks for keywords; no actual breakpoint verification"
+    },
+    {
+      "task_name": "e22fd026-be4e-48ba-8942-1d1f5faa2ec5-terminal-bench-form-wizard-medium",
+      "short_name": "form-wizard-medium",
+      "parent": "Tencent_TB2_Week01_91",
+      "category": "frontend-development",
+      "difficulty": "medium",
+      "question_quality": 7,
+      "test_quality": 4,
+      "test_cover": 5,
+      "avg_score": 5.33,
+      "severity": "serious",
+      "problem_tags": [
+        "No rendering/browser tests",
+        "Low test quality",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "All 189 tests are static text analysis; assert 'admin' in js is sufficient to pass"
+    },
+    {
+      "task_name": "4a297212-c02a-4c04-aedd-46bdef9ee495-terminal-bench-decision-tree-classifier-training-medium",
+      "short_name": "decision-tree-classifier-training-medium",
+      "parent": "Tencent_TB2_Week01_91",
+      "category": "model-training",
+      "difficulty": "medium",
+      "question_quality": 8,
+      "test_quality": 4,
+      "test_cover": 4,
+      "avg_score": 5.33,
+      "severity": "serious",
+      "problem_tags": [
+        "Low test quality",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "Deterministic algorithm (fixed seed + data) but tests don't verify any specific computed values"
+    },
+    {
+      "task_name": "1b536e19-524e-42db-b1ed-aa2119e455be-terminal-bench-time-travel-deterministic-debugger-medium",
+      "short_name": "time-travel-deterministic-debugger-medium",
+      "parent": "Tencent_TB2_Week2_123",
+      "category": "software-engineering",
+      "difficulty": "medium",
+      "question_quality": 6,
+      "test_quality": 5,
+      "test_cover": 5,
+      "avg_score": 5.33,
+      "severity": "serious",
+      "problem_tags": [
+        "Low test quality",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "Insufficient test coverage"
+    },
+    {
+      "task_name": "032b39e1-b28d-4c3b-8aaf-22d3047acf50-terminal-bench-data-table-medium",
+      "short_name": "data-table-medium",
+      "parent": "Tencent_TB2_Week01_91",
+      "category": "frontend-development",
+      "difficulty": "medium",
+      "question_quality": 7,
+      "test_quality": 5,
+      "test_cover": 5,
+      "avg_score": 5.67,
+      "severity": "serious",
+      "problem_tags": [
+        "No rendering/browser tests",
+        "Low test quality",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "test_search_filters_all_columns only checks that JS contains 'filter' and 'search'"
+    },
+    {
+      "task_name": "378315ae-84f4-44c6-aecc-18127aecaccb-terminal-bench-binary-classification-evaluation-medium",
+      "short_name": "binary-classification-evaluation-medium",
+      "parent": "Tencent_TB2_Week01_91",
+      "category": "machine-learning",
+      "difficulty": "hard",
+      "question_quality": 4,
+      "test_quality": 7,
+      "test_cover": 6,
+      "avg_score": 5.67,
+      "severity": "serious",
+      "problem_tags": [
+        "Poor question quality / contradictory description"
+      ],
+      "problem_detail": "CSV column names described in instruction.md do not match the actual data at all"
+    },
+    {
+      "task_name": "74514900-792f-4470-b6b4-6926157e5898-terminal-bench-thermal-diffusivity-fit-medium",
+      "short_name": "thermal-diffusivity-fit-medium",
+      "parent": "Tencent_TB2_Week01_91",
+      "category": "scientific-computing",
+      "difficulty": "medium",
+      "question_quality": 7,
+      "test_quality": 5,
+      "test_cover": 5,
+      "avg_score": 5.67,
+      "severity": "serious",
+      "problem_tags": [
+        "Low test quality",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "No absolute RMSE threshold; test_result_is_deterministic_on_disk reads the same file twice (meaningless test)"
+    },
+    {
+      "task_name": "d75a3226-42ce-4a4e-87f7-91ac37a212b4-terminal-bench-heat-diffusion-simulation-hard",
+      "short_name": "heat-diffusion-simulation-hard",
+      "parent": "Tencent_TB2_Week01_91",
+      "category": "scientific-computing",
+      "difficulty": "hard",
+      "question_quality": 7,
+      "test_quality": 5,
+      "test_cover": 5,
+      "avg_score": 5.67,
+      "severity": "serious",
+      "problem_tags": [
+        "Low test quality",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "Out of 49 sensors, only 3 are verified (6% coverage); energy tolerance of ±1000 is too loose"
+    },
+    {
+      "task_name": "c7e2a9f4-8d3b-4a1c-b5e6-2f9d8c4a7e3b-terminal-bench-calendar-conflict-detection-medium",
+      "short_name": "calendar-conflict-detection-medium",
+      "parent": "Tencent_TB2_Week2_123",
+      "category": "data-querying",
+      "difficulty": "medium",
+      "question_quality": 7,
+      "test_quality": 5,
+      "test_cover": 5,
+      "avg_score": 5.67,
+      "severity": "serious",
+      "problem_tags": [
+        "Low test quality",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "Insufficient test coverage"
+    },
+    {
+      "task_name": "2b94c9b9-24bf-4bf1-a0a9-d6d1f7e768cb-terminal-bench-phantom-backup-coverage-audit-medium",
+      "short_name": "phantom-backup-coverage-audit-medium",
+      "parent": "Tencent_TB2_Week2_123",
+      "category": "file-system",
+      "difficulty": "medium",
+      "question_quality": 7,
+      "test_quality": 6,
+      "test_cover": 4,
+      "avg_score": 5.67,
+      "severity": "serious",
+      "problem_tags": [
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "Insufficient test coverage"
+    },
+    {
+      "task_name": "48b1a938-4129-481d-bbb3-bbeec2639a1a-terminal-bench-cascade-dominion-hard",
+      "short_name": "cascade-dominion-hard",
+      "parent": "Tencent_TB2_Week2_123",
+      "category": "games-development",
+      "difficulty": "hard",
+      "question_quality": 5,
+      "test_quality": 7,
+      "test_cover": 5,
+      "avg_score": 5.67,
+      "severity": "serious",
+      "problem_tags": [
+        "Insufficient test scenarios / edge cases",
+        "Poor question quality / contradictory description",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "Only 1 board (15x15); no small boards, no cascade chains, no all-same-type pieces, and other edge cases missing"
+    },
+    {
+      "task_name": "8a3f2c1b-5e4d-4b9a-8c7e-1d2f3a4b5c6d-terminal-bench-rpg-battle-engine-medium",
+      "short_name": "rpg-battle-engine-medium",
+      "parent": "Tencent_TB2_Week2_123",
+      "category": "games-development",
+      "difficulty": "medium",
+      "question_quality": 7,
+      "test_quality": 5,
+      "test_cover": 5,
+      "avg_score": 5.67,
+      "severity": "serious",
+      "problem_tags": [
+        "Insufficient test scenarios / edge cases",
+        "Low test quality",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "Tests have inter-test state dependencies; damage formula and healing mechanics are not verified"
+    },
+    {
+      "task_name": "069e64b7-0921-4958-ba3b-7d0ee2650dac-terminal-bench-email-triage-planner-medium",
+      "short_name": "email-triage-planner-medium",
+      "parent": "Tencent_TB2_Week2_123",
+      "category": "personal-assistant",
+      "difficulty": "medium",
+      "question_quality": 7,
+      "test_quality": 5,
+      "test_cover": 5,
+      "avg_score": 5.67,
+      "severity": "serious",
+      "problem_tags": [
+        "Low test quality",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "Insufficient test coverage"
+    },
+    {
+      "task_name": "63f7aedb-f3a5-492c-a5cb-f533da6a0436-terminal-bench-protein-structure-pipeline-debugging-medium",
+      "short_name": "protein-structure-pipeline-debugging-medium",
+      "parent": "Tencent_TB2_Week2_123",
+      "category": "scientific-computing",
+      "difficulty": "easy",
+      "question_quality": 6,
+      "test_quality": 5,
+      "test_cover": 6,
+      "avg_score": 5.67,
+      "severity": "serious",
+      "problem_tags": [
+        "Low test quality"
+      ],
+      "problem_detail": "Insufficient test coverage"
+    },
+    {
+      "task_name": "ed878636-2328-45a9-885b-0fe63bbbcb6a-terminal-bench-user-account-audit-medium",
+      "short_name": "user-account-audit-medium",
+      "parent": "Tencent_TB2_Week2_123",
+      "category": "system-administration",
+      "difficulty": "medium",
+      "question_quality": 7,
+      "test_quality": 5,
+      "test_cover": 5,
+      "avg_score": 5.67,
+      "severity": "serious",
+      "problem_tags": [
+        "Low test quality",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "Insufficient test coverage"
+    },
+    {
+      "task_name": "4d0b3859-bc04-479e-9f85-9c0ea1a0d4dc-terminal-bench-pca-analysis-medium",
+      "short_name": "pca-analysis-medium",
+      "parent": "Tencent_TB2_Week3_80",
+      "category": "model-training",
+      "difficulty": "medium",
+      "question_quality": 7,
+      "test_quality": 5,
+      "test_cover": 5,
+      "avg_score": 5.67,
+      "severity": "serious",
+      "problem_tags": [
+        "Low test quality",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "30 tests verify structure and basic mathematical properties but don't verify any specific values; reconstruction error threshold of <20 is too lenient"
+    },
+    {
+      "task_name": "d08234e1-54a3-4bdd-b431-f61715f7b8ed-terminal-bench-appointment-scheduler-medium",
+      "short_name": "appointment-scheduler-medium",
+      "parent": "Tencent_TB2_Week01_91",
+      "category": "frontend-development",
+      "difficulty": "medium",
+      "question_quality": 7,
+      "test_quality": 5,
+      "test_cover": 6,
+      "avg_score": 6.0,
+      "severity": "serious",
+      "problem_tags": [
+        "No rendering/browser tests",
+        "Low test quality"
+      ],
+      "problem_detail": "No interactive behavior tests; no time conflict detection verification"
+    },
+    {
+      "task_name": "6a08d38d-e37b-45cd-ae30-cb6118d6ca98-terminal-bench-wordle-feedback-generator-medium",
+      "short_name": "wordle-feedback-generator-medium",
+      "parent": "Tencent_TB2_Week01_91",
+      "category": "games-development",
+      "difficulty": "easy",
+      "question_quality": 7,
+      "test_quality": 7,
+      "test_cover": 4,
+      "avg_score": 6.0,
+      "severity": "serious",
+      "problem_tags": [
+        "Insufficient test scenarios / edge cases",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "All 5 secret words have no repeated letters; missing all-GREEN, all-GRAY, and repeated-letter edge cases"
+    },
+    {
+      "task_name": "02275911-547a-4513-b4a7-448f58c1b8b2-terminal-bench-expense-report-generator-medium",
+      "short_name": "expense-report-generator-medium",
+      "parent": "Tencent_TB2_Week01_91",
+      "category": "personal-assistant",
+      "difficulty": "medium",
+      "question_quality": 7,
+      "test_quality": 6,
+      "test_cover": 5,
+      "avg_score": 6.0,
+      "severity": "serious",
+      "problem_tags": [
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "Expense rule edge cases (e.g., over-limit approvals, cross-category aggregation) are not covered"
+    },
+    {
+      "task_name": "e1a957bd-ceeb-40ef-bec7-3e7a7959cd11-terminal-bench-computational-reproducibility-investigation-medium",
+      "short_name": "computational-reproducibility-investigation-medium",
+      "parent": "Tencent_TB2_Week01_91",
+      "category": "scientific-computing",
+      "difficulty": "medium",
+      "question_quality": 6,
+      "test_quality": 6,
+      "test_cover": 6,
+      "avg_score": 6.0,
+      "severity": "serious",
+      "problem_tags": [
+        "Overall score borderline low"
+      ],
+      "problem_detail": "Tolerances are too lenient; insufficient coverage"
+    },
+    {
+      "task_name": "3a59c03b-3093-4f61-8b93-70386bedfab5-terminal-bench-maritime-ais-signal-forensics-medium",
+      "short_name": "maritime-ais-signal-forensics-medium",
+      "parent": "Tencent_TB2_Week01_91",
+      "category": "security",
+      "difficulty": "medium",
+      "question_quality": 8,
+      "test_quality": 5,
+      "test_cover": 5,
+      "avg_score": 6.0,
+      "severity": "serious",
+      "problem_tags": [
+        "Low test quality",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "test_transformation_key_present accepts any hexadecimal value instead of verifying the correct XOR key"
+    },
+    {
+      "task_name": "b8f3c9d2-7a41-4e5b-9c8d-3f2e1a6b4d5c-terminal-bench-intrusion-scanner-hard",
+      "short_name": "intrusion-scanner-hard",
+      "parent": "Tencent_TB2_Week2_123",
+      "category": "algorithm-design",
+      "difficulty": "hard",
+      "question_quality": 5,
+      "test_quality": 7,
+      "test_cover": 6,
+      "avg_score": 6.0,
+      "severity": "serious",
+      "problem_tags": [
+        "Poor question quality / contradictory description"
+      ],
+      "problem_detail": "Question description is weak/insufficient"
+    },
+    {
+      "task_name": "25a047bd-044d-4e4f-8ae1-2e72f2e7f02f-terminal-bench-regional-fleet-telemetry-mileage-calculation-hard",
+      "short_name": "regional-fleet-telemetry-mileage-calculation-hard",
+      "parent": "Tencent_TB2_Week2_123",
+      "category": "data-science",
+      "difficulty": "medium",
+      "question_quality": 6,
+      "test_quality": 7,
+      "test_cover": 5,
+      "avg_score": 6.0,
+      "severity": "serious",
+      "problem_tags": [
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "Insufficient test coverage"
+    },
+    {
+      "task_name": "7ac8278c-01d6-4c0d-9e8a-63ecde9449f3-terminal-bench-vanilla-to-react-typescript-medium",
+      "short_name": "vanilla-to-react-typescript-medium",
+      "parent": "Tencent_TB2_Week2_123",
+      "category": "frontend-development",
+      "difficulty": "medium",
+      "question_quality": 7,
+      "test_quality": 6,
+      "test_cover": 5,
+      "avg_score": 6.0,
+      "severity": "serious",
+      "problem_tags": [
+        "No rendering/browser tests",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "No rendering/browser tests"
+    },
+    {
+      "task_name": "32222665-8e6e-4b42-b87c-3ed1992439ee-terminal-bench-monte-carlo-integration-medium",
+      "short_name": "monte-carlo-integration-medium",
+      "parent": "Tencent_TB2_Week2_123",
+      "category": "scientific-computing",
+      "difficulty": "medium",
+      "question_quality": 6,
+      "test_quality": 6,
+      "test_cover": 6,
+      "avg_score": 6.0,
+      "severity": "serious",
+      "problem_tags": [
+        "Overall score borderline low"
+      ],
+      "problem_detail": "Insufficient test coverage"
+    },
+    {
+      "task_name": "3b60b71b-9fb6-4aed-bfb1-24e39a3223f2-terminal-bench-self-referential-adversarial-system-reconstruction-medium",
+      "short_name": "self-referential-adversarial-system-reconstruction-medium",
+      "parent": "Tencent_TB2_Week3_80",
+      "category": "algorithm-design",
+      "difficulty": "medium",
+      "question_quality": 4,
+      "test_quality": 7,
+      "test_cover": 7,
+      "avg_score": 6.0,
+      "severity": "serious",
+      "problem_tags": [
+        "Poor question quality / contradictory description"
+      ],
+      "problem_detail": "Instruction asks to reconstruct state space and operators from traces, but spec.json already provides complete operator definitions; entropy mechanism doesn't match the actual spec definition"
+    },
+    {
+      "task_name": "d852d0a3-2a8e-49e9-8486-5075fcf96139-terminal-bench-othello-style-grid-capture-medium",
+      "short_name": "othello-style-grid-capture-medium",
+      "parent": "Tencent_TB2_Week01_91",
+      "category": "games-development",
+      "difficulty": "medium",
+      "question_quality": 7,
+      "test_quality": 7,
+      "test_cover": 5,
+      "avg_score": 6.33,
+      "severity": "moderate",
+      "problem_tags": [
+        "Insufficient test scenarios / edge cases",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "Missing zero-capture, single-row, long-chain, and all-same-color edge cases"
+    },
+    {
+      "task_name": "a9e7f629-dc0a-4ac8-bb64-294a93ef42d1-terminal-bench-adversarial-temporal-hypergraph-medium",
+      "short_name": "adversarial-temporal-hypergraph-medium",
+      "parent": "Tencent_TB2_Week2_123",
+      "category": "algorithm-design",
+      "difficulty": "medium",
+      "question_quality": 7,
+      "test_quality": 7,
+      "test_cover": 5,
+      "avg_score": 6.33,
+      "severity": "moderate",
+      "problem_tags": [
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "Insufficient test coverage"
+    },
+    {
+      "task_name": "2ac62265-c751-4b74-a041-b52e29fd1610-terminal-bench-data-visualization-dashboard-hard",
+      "short_name": "data-visualization-dashboard-hard",
+      "parent": "Tencent_TB2_Week2_123",
+      "category": "frontend-development",
+      "difficulty": "hard",
+      "question_quality": 7,
+      "test_quality": 5,
+      "test_cover": 7,
+      "avg_score": 6.33,
+      "severity": "moderate",
+      "problem_tags": [
+        "No rendering/browser tests",
+        "Low test quality"
+      ],
+      "problem_detail": "No rendering/browser tests; DOM parsing is present but interactive behavior is not verified"
+    },
+    {
+      "task_name": "133195de-e208-4655-ad5d-eb5d44ff9624-terminal-bench-turn-grid-war-medium",
+      "short_name": "turn-grid-war-medium",
+      "parent": "Tencent_TB2_Week2_123",
+      "category": "games-development",
+      "difficulty": "medium",
+      "question_quality": 7,
+      "test_quality": 7,
+      "test_cover": 5,
+      "avg_score": 6.33,
+      "severity": "moderate",
+      "problem_tags": [
+        "Insufficient test scenarios / edge cases",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "Missing out-of-bounds movement, combo chain trigger cap, weakened status stacking, and other edge cases"
+    },
+    {
+      "task_name": "21fafbb2-5225-46d6-a13c-519159088909-terminal-bench-dockside-arbitrage-medium",
+      "short_name": "dockside-arbitrage-medium",
+      "parent": "Tencent_TB2_Week2_123",
+      "category": "games-development",
+      "difficulty": "medium",
+      "question_quality": 7,
+      "test_quality": 7,
+      "test_cover": 5,
+      "avg_score": 6.33,
+      "severity": "moderate",
+      "problem_tags": [
+        "Insufficient test scenarios / edge cases",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "Only 1 dataset; missing dense-arrival tie, idle dock, all-rejected, and other scenarios"
+    },
+    {
+      "task_name": "62fd4a7b-de7d-4970-ad25-d677e2b7ff30-terminal-bench-carcassonne-game-hard",
+      "short_name": "carcassonne-game-hard",
+      "parent": "Tencent_TB2_Week2_123",
+      "category": "games-development",
+      "difficulty": "hard",
+      "question_quality": 7,
+      "test_quality": 7,
+      "test_cover": 5,
+      "avg_score": 6.33,
+      "severity": "moderate",
+      "problem_tags": [
+        "Insufficient test scenarios / edge cases",
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "Only 1 board state; penalty threshold boundaries, all meeples used up, and other scenarios are not tested"
+    },
+    {
+      "task_name": "5ce102f4-16b6-48c8-885a-85cc62cbc060-terminal-bench-matrix-operations-linear-algebra-medium",
+      "short_name": "matrix-operations-linear-algebra-medium",
+      "parent": "Tencent_TB2_Week2_123",
+      "category": "mathematics",
+      "difficulty": "medium",
+      "question_quality": 7,
+      "test_quality": 7,
+      "test_cover": 5,
+      "avg_score": 6.33,
+      "severity": "moderate",
+      "problem_tags": [
+        "Insufficient test coverage"
+      ],
+      "problem_detail": "Insufficient test coverage"
+    },
+    {
+      "task_name": "e9c8cd3b-2947-4ef0-bd6f-1334526091e4-terminal-bench-federated-learning-dp-gradient-clipping-aggregation-hard",
+      "short_name": "federated-learning-dp-gradient-clipping-aggregation-hard",
+      "parent": "Tencent_TB2_Week3_80",
+      "category": "data-science",
+      "difficulty": "hard",
+      "question_quality": 5,
+      "test_quality": 7,
+      "test_cover": 7,
+      "avg_score": 6.33,
+      "severity": "moderate",
+      "problem_tags": [
+        "Poor question quality / contradictory description"
+      ],
+      "problem_detail": "Key validation rules are implicit; critical requirements are scattered across three files"
+    },
+    {
+      "task_name": "43ce7f17-557e-4ec7-9e6f-0dd752a9db1e-terminal-bench-firewall-rule-audit-medium",
+      "short_name": "firewall-rule-audit-medium",
+      "parent": "Tencent_TB2_Week3_80",
+      "category": "security",
+      "difficulty": "medium",
+      "question_quality": 8,
+      "test_quality": 5,
+      "test_cover": 6,
+      "avg_score": 6.33,
+      "severity": "moderate",
+      "problem_tags": [
+        "Low test quality"
+      ],
+      "problem_detail": "Core algorithm (classifying rules as shadow/conflict/redundant) is completely untested; labeling all rules as 'none' passes as long as the format is correct"
+    },
+    {
+      "task_name": "62e85496-e65c-41ae-92f8-7f8071cc53de-terminal-bench-ecommerce-transaction-reconciliation-hard",
+      "short_name": "ecommerce-transaction-reconciliation-hard",
+      "parent": "Tencent_TB2_Week2_123",
+      "category": "data-preprocessing",
+      "difficulty": "hard",
+      "question_quality": 5,
+      "test_quality": 8,
+      "test_cover": 9,
+      "avg_score": 7.33,
+      "severity": "moderate",
+      "problem_tags": [
+        "Poor question quality / contradictory description"
+      ],
+      "problem_detail": "Question description is weak/insufficient"
+    }
+  ]
+}

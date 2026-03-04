@@ -1,0 +1,40 @@
+# Output files and downloads
+outputs/
+domain-reviewers/outputs/
+domain-reviewers/fixed/
+
+# Python
+*.pyc
+__pycache__/
+
+# Environment / API keys
+.env
+*.env
+.api_key
+credentials.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Frontend/UI/Games domain reviewers (excluded per request)
+domain-reviewers/domains/frontend_development.py
+domain-reviewers/domains/ui_ux_optimization.py
+domain-reviewers/domains/games_development.py
+
+# Sample reviews and data files
+Sample Reviews/
+Results
+*.pdf
+*.pptx
+
+# Embedded repos
+terminal-bench-1.0-validator/
+
+# Temp/misc
+_task_rows_js.txt
+Back uo
+22-1-26
+23-1-26
+26-1-26
+harbor/
