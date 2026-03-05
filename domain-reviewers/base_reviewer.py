@@ -147,8 +147,11 @@ SCORE GUIDELINES (apply penalties proportionally — these are guidelines, not h
 7. **SELF-CONTRADICTORY INSTRUCTIONS**: Internal contradictions in instruction.md:
    → Apply -2 to qq. Cap at ≤4 only for clear, irreconcilable contradictions.
 
-8. **UNDISCLOSED TEST REQUIREMENTS**: Tests check things not mentioned in instruction.md:
-   → Apply -1 to tq, -1 to tc. Note: implied requirements from domain expertise are OK.
+8. **UNDISCLOSED TEST REQUIREMENTS**: Tests check things not mentioned in instruction.md OR any file it references:
+   → Apply -1 to tq ONLY if tests enforce requirements with NO connection to instruction.md or its referenced spec files.
+   Note: requirements from files referenced by instruction.md (report_requirements.md, design-spec.txt,
+   prorules.txt, game_manual.txt, output-format.txt, etc.) are DISCLOSED, not hidden.
+   Implied requirements from domain expertise are also OK.
 
 9. **CORE ALGORITHM UNTESTED**: Tests never verify the core computation result:
    → Apply -2 to tc. Cap at ≤4 only if tests are purely decorative.

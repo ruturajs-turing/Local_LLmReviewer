@@ -138,10 +138,22 @@ ACCEPT AS VALID (DO NOT FLAG):
 - Tests verifying numeric precision experts would expect
 - Tests validating intermediate steps necessary for final output
 - Any test checking something a competent developer would naturally implement
+- Tests enforcing requirements from files REFERENCED by instruction.md (e.g.,
+  report_requirements.md, design-spec.txt, prorules.txt, game_manual.txt,
+  output-format.txt, format_and_outputs.md, nav-structure.json, config.json).
+  These are DISCLOSED requirements, NOT hidden criteria.
+- Tests with quantitative thresholds (percentages, counts, limits) that originate
+  from referenced spec/requirements files — these are legitimate acceptance criteria
+
+REFERENCED SPEC FILES — IMPORTANT RULE:
+If instruction.md says "see report_requirements.md", "follow the spec in design-spec.txt",
+"refer to prorules.txt", or otherwise points to another file as the source of requirements,
+ALL requirements in that referenced file are considered DISCLOSED. Tests that enforce those
+requirements are VALID and must NOT be flagged as undisclosed or hidden.
 
 FILE NAMING — BE STRICT:
 If instruction.md only specifies an OUTPUT DIRECTORY but tests require SPECIFIC FILENAMES:
--> FAIL: Filenames are NOT implied unless instruction.md explicitly mentions them.
+-> FAIL: Filenames are NOT implied unless instruction.md or a referenced spec file mentions them.
 
 ONLY FLAG AS FAIL IF:
 1. Tests CONTRADICT the prompt
@@ -150,8 +162,8 @@ ONLY FLAG AS FAIL IF:
 4. Tests directly execute solve.sh or import solution
 5. Tests contain raw 'raise' statements (must use assert or pytest.fail)
 6. Tests involve filesystem symlinks (not OS-agnostic)
-7. Tests check for requirements IMPOSSIBLE to infer from context
-8. Tests require SPECIFIC FILENAMES not mentioned in instruction.md
+7. Tests check for requirements IMPOSSIBLE to infer from instruction.md, its referenced files, or domain context
+8. Tests require SPECIFIC FILENAMES not mentioned in instruction.md or any referenced spec file
 
 PART 3: FORBIDDEN PATTERNS
 - Model gating tests (checking model name to fail specific models)
@@ -485,31 +497,42 @@ OUTPUT FORMAT (JSON):
 # ── QD-M: Instruction-Test Alignment ────────────────────────────────────
 
 QD_M_RUBRIC = r"""
-M) STRICT INSTRUCTION-TEST ALIGNMENT CHECK
-Goal: Verify that all tests are fully disclosed, justified, and supported by instruction.md.
+M) INSTRUCTION-TEST ALIGNMENT CHECK
+Goal: Verify that all tests are justified and supported by instruction.md OR files it references.
+
+IMPORTANT — REFERENCED SPEC FILES RULE:
+If instruction.md references or points to another file (e.g., "see report_requirements.md",
+"follow the spec in design-spec.txt", "refer to prorules.txt for rules"), then ALL requirements
+in that referenced file count as DISCLOSED for alignment purposes. Tests that enforce those
+requirements are VALID and must NOT be marked as undeclared/hidden.
+
+Common referenced spec files include: report_requirements.md, design-spec.txt, prorules.txt,
+game_manual.txt, output-format.txt, format_and_outputs.md, player_notes.md, config.json,
+nav-structure.json, mockup.txt, table-config.json, and similar files in the task's src/ or
+environment/ directories.
 
 STAGE 0 — TEST FILE REFERENCE CHECK
-If a test references a shared file (input data, config), instruction.md MUST mention it.
-FAIL if undisclosed shared files found.
+If a test references a shared file (input data, config), instruction.md or a referenced spec
+file MUST mention it. FAIL only if the file has zero connection to any disclosed document.
 
 STAGE 1 — BIDIRECTIONAL COVERAGE & ALIGNMENT
 1. Instruction -> Test Mapping (Forward):
-   - Extract every requirement from instruction.md
+   - Extract every requirement from instruction.md AND its referenced spec files
    - Find corresponding test assertion
    - Mark untested instructions
 
 2. Test -> Instruction Mapping (Reverse):
    - Extract every test assertion
-   - Verify instruction.md provides the expectation
-   - Mark undeclared test assertions
+   - Verify instruction.md OR a referenced spec file provides the expectation
+   - Mark undeclared test assertions ONLY if they cannot be traced to any disclosed file
 
 3. Hidden/Misleading Test Detection:
-   - Hardcoded filenames, constants, or function names absent in instruction.md
+   - Hardcoded filenames, constants, or function names absent in instruction.md AND all referenced files
    - Deep internal checks instead of output-level validation
 
-   FILENAME SPECIFICITY (CRITICAL):
+   FILENAME SPECIFICITY:
    If instruction.md only specifies OUTPUT DIRECTORY but tests require SPECIFIC FILENAMES:
-   Flag as UNDECLARED TEST ASSERTION.
+   Flag as UNDECLARED only if the filenames are also absent from any referenced spec file.
 
 STAGE 2 — STRICT COVERAGE GAPS (CRITICAL)
 1. NUMERIC VALUE ASSERTIONS:
@@ -536,14 +559,16 @@ STAGE 2 — STRICT COVERAGE GAPS (CRITICAL)
 
 STAGE 3 — TIERED EVALUATION (HUMANE PROMPT MODE)
 CRITICAL (causes FAIL):
-- Undisclosed output files with zero hints
-- Secret validation rules
-- Tests requiring module/function names never mentioned
+- Undisclosed output files with zero hints in instruction.md AND zero hints in any referenced spec file
+- Secret validation rules not traceable to any disclosed document
+- Tests requiring module/function names never mentioned in instruction.md or referenced files
 - Untested numeric values, untested formatting rules, weak assertions
 
 MINOR (note but PASS):
 - Standard library conventions, JSON structure from examples
 - File paths visible in Dockerfile
+- Quantitative thresholds (80%, 85%, >=3, etc.) from referenced spec files — these are valid disclosed requirements
+- Requirements originating from files explicitly referenced by instruction.md
 
 OUTPUT FORMAT (JSON):
 {
