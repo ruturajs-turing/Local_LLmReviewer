@@ -17,10 +17,9 @@ credentials.json
 .DS_Store
 Thumbs.db
 
-# Frontend/UI/Games domain reviewers (excluded per request)
+# Frontend/UI domain reviewers (excluded per request)
 domain-reviewers/domains/frontend_development.py
 domain-reviewers/domains/ui_ux_optimization.py
-domain-reviewers/domains/games_development.py
 
 # Sample reviews and data files
 Sample Reviews/
